@@ -1,52 +1,17 @@
-
-const favoriteLanguage = 'JS';
-const senseOfHumor = false;
-
-const human = {
-    name: "Aleksey",
+const jsStudent = {
+    name: 'Aleksei',
     age: 36,
-    gitUser: true
+    sex: 'male',
+    language: 'RU',
+    greetings() {
+        console.log('hello there!')
+    },
+    study() {
+        console.log('Aleksei is learning JS now')
+    }
 }
 
-console.table(human)
+console.table(jsStudent);
 
-human.weight = 90
-
-console.table(human)
-
-delete human.weight
-
-console.log (human)
-
-human["weight"] = 90
-
-console.log (human)
-
-const humanFace = "face"
-const haveWork = "work"
-
-human[humanFace] = "nice"
-human[haveWork] = true
-
-console.table(human)
-
-human.pc = {
-    laptop: true,
-    desktop: true
-}
-
-console.table(human)
-console.log(human)
-
-human.clothes = {
-    pans: 'military',
-    shorts: 'red'
-}
-
-const newMan = {
-    senseOfHumor,
-    favoriteLanguage
-}
-
-
-console.table(newMan)
+jsStudent.greetings();
+jsStudent.study();
