@@ -1,3 +1,7 @@
+
+const favoriteLanguage = 'JS';
+const senseOfHumor = false;
+
 const human = {
     name: "Aleksey",
     age: 36,
@@ -39,4 +43,10 @@ human.clothes = {
     shorts: 'red'
 }
 
-console.log(human)
+const newMan = {
+    senseOfHumor,
+    favoriteLanguage
+}
+
+
+console.table(newMan)
