@@ -15,3 +15,5 @@ console.table(jsStudent);
 
 jsStudent.greetings();
 jsStudent.study();
+
+
