@@ -5,7 +5,7 @@ const fs = require("fs");
 fs.readFile("tasks/text4task5.txt", (err, data) => {
     if (err) throw err;
     //console.log(data.toString());
-    
+
     const text = data.toString();
 
     function numToWords (txt) {
@@ -17,7 +17,6 @@ fs.readFile("tasks/text4task5.txt", (err, data) => {
                 result += 'один';
             } else if (txt.charAt(index) == '2') {
                 result += 'два';
-                console.log('+');
             } else if (txt.charAt(index) == '3') {
                 result += 'три';
             } else if (txt.charAt(index) == '4') {
