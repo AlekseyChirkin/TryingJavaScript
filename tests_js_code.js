@@ -3,17 +3,25 @@ const jsStudent = {
     age: 36,
     sex: 'male',
     language: 'RU',
-    greetings() {
-        console.log('hello there!')
-    },
-    study() {
-        console.log('Aleksei is learning JS now')
-    }
+}
+try {
+    setTimeout(()=>{throw new Error('Прошло 3 секунды со старта программы, хватит!!!')}, 3000);
+    throw new Error ('УУУУ!! ска!!! ОШИБКА!');
+} catch (error) {
+    // console.error(error);
+    console.log('УУУУУ!!! Попался, ска! Вот что орёт: "' + error.message + '"');
 }
 
-console.table(jsStudent);
 
-jsStudent.greetings();
-jsStudent.study();
+const jsStudentIsStudyingTime = (student, studyTime = Date()) => ({
+    ...student,
+    studyTime,
+})
 
 
+const jsStudentIsStudyingTime2 = (student, studyTime = Date()) =>  {return {
+    ...student,
+    studyTime,
+}}
+
+console.log(jsStudentIsStudyingTime(jsStudent));

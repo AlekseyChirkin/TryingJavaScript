@@ -24,29 +24,43 @@ function allFirstLettersUp (txt) {
 
 function numToWords (txt) {
     let result = '';
+
     for (let index = 0; index < txt.length; index++) {
-        if (txt.charAt(index) == '0') {
-            result += 'ноль';
-        } else if (txt.charAt(index) == '1') {
-            result += 'один';
-        } else if (txt.charAt(index) == '2') {
-            result += 'два';
-        } else if (txt.charAt(index) == '3') {
-            result += 'три';
-        } else if (txt.charAt(index) == '4') {
-            result += 'четыре';
-        } else if (txt.charAt(index) == '5') {
-            result += 'пять';
-        } else if (txt.charAt(index) == '6') {
-            result += 'шесть';
-        } else if (txt.charAt(index) == '7') {
-            result += 'семь';
-        } else if (txt.charAt(index) == '8') {
-            result += 'восемь';
-        } else if (txt.charAt(index) == '9') {
-            result += 'девять';
-        } else {
-            result += txt.charAt(index);
+    
+        const char = txt.charAt(index);
+
+        switch (char) {
+            case ('0') :
+                result += 'ноль';
+                break
+            case ('1') :
+                result += 'один';
+                break
+            case ('2') :
+                result += 'два';
+                break
+            case ('3') :
+                result += 'три';
+                break
+            case ('4') :
+                result += 'четыре';
+                break
+            case ('5') :
+                result += 'пять';
+                break
+            case ('6') :
+                result += 'шесть';
+                break
+            case ('7') :
+                result += 'семь';
+                break
+            case ('8') :
+                result += 'восемь';
+                break
+            case ('9') :
+                result += 'девять';
+                break
+            default: result += txt.charAt(index);
         }
     }
 
