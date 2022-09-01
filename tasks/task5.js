@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 
-fs.readFile("tasks/text4task5.txt", (err, data) => {
+fs.readFile("tasks/textsForTasks/text4task5.txt", (err, data) => {
     if (err) throw err;
 
     const onlyWords = numToWords(data.toString());

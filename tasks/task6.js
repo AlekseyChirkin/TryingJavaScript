@@ -1,6 +1,6 @@
 // Дан [файл](https://yadi.sk/i/6ywJqzm93HGmy9)  с логинами и паролями. Найдите топ10 самых популярных паролей.
 
-const fileName = 'tasks/pwd.txt';
+const fileName = 'tasks/textsForTasks/pwd.txt';
 
 const fs = require('fs');
     
