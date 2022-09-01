@@ -1,1 +1,1 @@
-# JavaScript-test-project
+# JavaScriptTryLang
