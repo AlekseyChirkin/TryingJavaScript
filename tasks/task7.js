@@ -23,9 +23,10 @@ fs.readFile ('tasks/textsForTasks/students.txt', 'utf-8', (err, data) => {
             grade4: student[9],
             grade5: student[10],
         }
-
         students.push(currentStudentFromFile);
     });
+
+    students.sort();
 
     console.log(students);
 });
