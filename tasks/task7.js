@@ -4,14 +4,15 @@
 Для каждой группы найдите лучшего с точки зрения успеваемости студента. 
 */
 
-let students = [];
+const students = [];
 
-const fs = require("fs");
+const fs = require('fs');
 fs.readFile ('tasks/textsForTasks/students.txt', 'utf-8', (err, data) => {
     const studentsByLines = data.split('\n');
     studentsByLines.forEach((elem) => {
         const student = elem.split(' ');
-        const newStudentFromFile = {
+
+        const currentStudentFromFile = {
             name: student[0] + ' ' + student[1] + ' ' + student[2],
             birthYear: student[3],
             year: student[4],
@@ -22,10 +23,9 @@ fs.readFile ('tasks/textsForTasks/students.txt', 'utf-8', (err, data) => {
             grade4: student[9],
             grade5: student[10],
         }
-       
-        students.push(newStudentFromFile);
+
+        students.push(currentStudentFromFile);
     });
 
     console.log(students);
 });
-
