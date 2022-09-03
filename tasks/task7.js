@@ -9,6 +9,7 @@ let students2year = [];
 let students3year = [];
 let students4year = [];
 let studentsSorted = [];
+let content = '';
 
 const fs = require('fs');
 const studentsByLines = fs.readFileSync('tasks/textsForTasks/students.txt').toString().split('\n');
@@ -41,12 +42,19 @@ studentsSorted.push.apply(studentsSorted, students4year);
 
 studentsSorted.forEach(elem => {
     console.log(`${elem.year} курс, ${elem.group} группа, ${elem.name}`);
+    content += '\n' + `${elem.year} курс, ${elem.group} группа, ${elem.name}`;
 });
 
 averageGradeForEveryGroup (studentsSorted);
 mostAgedAndMostYoung (studentsSorted);
 
 bestInGroup(studentsSorted);
+
+fs.writeFile('tasks/textsForTasks/reportTask7.txt', content, err => {
+    if (err) {
+      console.error(err);
+    }
+});    
 
 function bestInGroup(params) {
     const students = params;
@@ -69,7 +77,10 @@ function bestInGroup(params) {
                 }
             });
 
-            if (bestStudent != -1) console.log(`Лучший по успеваемости студент в ${bestStudent.group} группе (${bestStudent.year} курс) - ${bestStudent.name} (${bestAverageGrade} средний балл)`);
+            if (bestStudent != -1) {
+                console.log(`Лучший по успеваемости студент в ${bestStudent.group} группе (${bestStudent.year} курс) - ${bestStudent.name} (${bestAverageGrade} средний балл)`);
+                content += '\n' + `Лучший по успеваемости студент в ${bestStudent.group} группе (${bestStudent.year} курс) - ${bestStudent.name} (${bestAverageGrade} средний балл)`;
+            }
 
             // если лучших студентов в группе несколько 
             students.filter(st => st.year === y).filter(st => st.group === g).forEach((elem) => {
@@ -81,6 +92,7 @@ function bestInGroup(params) {
 
                 if (bestAverageGrade === avrGrade && bestStudent.name != elem.name) {
                     console.log(`Так же в учебе чертовски хорош студент ${elem.group} группы (${elem.year} курса) - ${elem.name} (${bestAverageGrade} средний балл)`);                }
+                    content += '\n' + `Так же в учебе чертовски хорош студент ${elem.group} группы (${elem.year} курса) - ${elem.name} (${bestAverageGrade} средний балл)`;
             });
 
         }
@@ -96,8 +108,14 @@ function mostAgedAndMostYoung (arr) {
         my = (my >= elem.birthYear) ? ma : elem.birthYear;
     });
 
-    students.filter(elem => elem.birthYear == ma).forEach(elem => console.log(`Самый старший(-ие) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`));
-    students.filter(elem => elem.birthYear == my).forEach(elem => console.log(`Самый молодой(-ые) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`));
+    students.filter(elem => elem.birthYear == ma).forEach((elem) => {
+        console.log(`Самый старший(-ие) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`);
+        content += '\n' + `Самый старший(-ие) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`;
+    });
+    students.filter(elem => elem.birthYear == my).forEach(elem => {
+        console.log(`Самый молодой(-ые) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`)
+        content += '\n' + `Самый молодой(-ые) студент(-ы) ${elem.name}, ${elem.birthYear} года рождения`;
+    });
 }
 
 function addStudent(student) {
@@ -162,6 +180,12 @@ function averageGradeForEveryGroup (arr) {
                 Предмет3: ${averageGrade3}
                 Предмет4: ${averageGrade4}
                 Предмет5: ${averageGrade5}`);
+                content += '\n' + `Средний балл ${g} группы, ${y} курс (${stCount} человек в группе) по:
+                Предмет1: ${averageGrade1}
+                Предмет2: ${averageGrade2}
+                Предмет3: ${averageGrade3}
+                Предмет4: ${averageGrade4}
+                Предмет5: ${averageGrade5}`;
             }
         }
     }
