@@ -1,3 +1,19 @@
+class Student {
+    constructor(name, birthYear, year, group, grade1, grade2, grade3, grade4, grade5) {
+        this.name = name;
+        this.birthYear = parseInt(birthYear);
+        this.year = parseInt(year);
+        this.group = parseInt(group);
+        this.grade1 = parseInt(grade1);
+        this.grade2 = parseInt(grade2);
+        this.grade3 = parseInt(grade3);
+        this.grade4 = parseInt(grade4);
+        this.grade5 = parseInt(grade5);
+    }
+
+    static alwaysDrink
+}
+
 const students = [];
 
 const fs = require('fs');
@@ -21,17 +37,12 @@ studentsByLines.forEach((elem) => {
     students.push(currentStudentFromFile);
 });
 
+console.log(students[0].__proto__ === Student.prototype);
 
-class Student {
-    constructor(name, birthYear, year, group, grade1, grade2, grade3, grade4, grade5) {
-        this.name = name;
-        this.birthYear = parseInt(birthYear);
-        this.year = parseInt(year);
-        this.group = parseInt(group);
-        this.grade1 = parseInt(grade1);
-        this.grade2 = parseInt(grade2);
-        this.grade3 = parseInt(grade3);
-        this.grade4 = parseInt(grade4);
-        this.grade5 = parseInt(grade5);
-    }
-}
+/* fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => {
+    console.log(response);
+    return response.json();
+  })
+  .then(json => console.log(json))
+  .catch(error => console.error(error)); */
