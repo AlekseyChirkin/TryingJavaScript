@@ -4,6 +4,20 @@
 Для каждой группы найдите лучшего с точки зрения успеваемости студента. 
 */
 
+class Student {
+    constructor(name, birthYear, year, group, grade1, grade2, grade3, grade4, grade5) {
+        this.name = name;
+        this.birthYear = parseInt(birthYear);
+        this.year = parseInt(year);
+        this.group = parseInt(group);
+        this.grade1 = parseInt(grade1);
+        this.grade2 = parseInt(grade2);
+        this.grade3 = parseInt(grade3);
+        this.grade4 = parseInt(grade4);
+        this.grade5 = parseInt(grade5);
+    }
+}
+
 let students1year = [];
 let students2year = [];
 let students3year = [];
@@ -14,20 +28,23 @@ let content = '';
 const fs = require('fs');
 const studentsByLines = fs.readFileSync('tasks/textsForTasks/students.txt').toString().split('\n');
 
+
 studentsByLines.forEach((elem) => {
     const student = elem.split(' ');
-    const currentStudentFromFile = {
-        name: student[0] + ' ' + student[1] + ' ' + student[2],
-        birthYear: parseInt(student[3]),
-        year: parseInt(student[4]),
-        group: parseInt(student[5]),
-        grade1: parseInt(student[6]),
-        grade2: parseInt(student[7]),
-        grade3: parseInt(student[8]),
-        grade4: parseInt(student[9]),
-        grade5: parseInt(student[10]),
-    }
-    addStudent (currentStudentFromFile);
+
+    const tempName = student[0] + ' ' + student[1] + ' ' + student[2];
+    const tempBirthYear = student[3];
+    const tempYear = student[4];
+    const tempGroup = student[5];
+    const tempGrade1 = student[6];
+    const tempGrade2 = student[7];
+    const tempGrade3 = student[8];
+    const tempGrade4 = student[9];
+    const tempGrade5 = student[10];
+
+    const currentStudentFromFile = new Student(tempName, tempBirthYear, tempYear, tempGroup, tempGrade1, tempGrade2, tempGrade3, tempGrade4, tempGrade5);
+    
+    addStudent(currentStudentFromFile);
 });
 
 sortByName(students1year);
@@ -189,8 +206,4 @@ function averageGradeForEveryGroup (arr) {
             }
         }
     }
-
-
-
-
 }
